@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            #region Count
             //Método Count
             string[] cursos = { "C#", "Java", "Python", "PHP", "Go", "Node" };
             var resultado1 = cursos.Count();
@@ -21,7 +22,9 @@
             /// porém para valores muito grandes. Deve ser usado quando o valor máximo dos inteiros
             /// ultrapassa a quantidade suportada pelo Count(). Essa quantidade é 2.147.483.647
             /// </summary>
+            #endregion
 
+            #region Sum
             // Método SUM
             int[] numeros = { 3, 5, 7, 9, 10, 12, 15, 20, 30, 39 };
             int soma = numeros.Sum();
@@ -43,7 +46,9 @@
                     return 0;
             });
             Console.WriteLine(soma2);
+            #endregion
 
+            #region Max e Min
             //Métodos Max e Min
             var funcionarios = FonteDados.GetFuncionarios();
             var maxIdade = funcionarios.Max(f => f.Idade);
@@ -65,6 +70,7 @@
             Console.WriteLine(minIdade);
             Console.WriteLine(minSalario);
             Console.WriteLine(menor20);
+            #endregion
 
             Console.ReadKey();
         }

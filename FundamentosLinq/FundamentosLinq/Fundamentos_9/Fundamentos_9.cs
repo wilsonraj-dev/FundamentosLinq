@@ -74,7 +74,17 @@
             var resultaAluno1SintaxeConsulta = (from a in alunos
                                                 select a).Contains(aluno1);
             Console.WriteLine($"{resultadoAluno1} - {resultaAluno1SintaxeConsulta}");
+
+            //Usando o método Contains() com sua segunda sobrecarga
+            AlunoComparer alunoComparer = new AlunoComparer();
+            var compararAluno = alunos.Contains(aluno1, alunoComparer);
+
+            resultaAluno1SintaxeConsulta = (from a in alunos
+                                            select a).Contains(aluno1, alunoComparer);
+            Console.WriteLine($"{alunoComparer} - {resultaAluno1SintaxeConsulta}");
             #endregion
+
+            Console.ReadKey();
         }
     }
 }

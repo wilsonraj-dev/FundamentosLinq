@@ -87,6 +87,95 @@
 
             Console.WriteLine(sintaxeConsulta);
             #endregion
+
+            #region Last
+            ///<summary>
+            ///O método Last() é usado para retornar o primeiro elemento de uma fonte de dados.
+            ///Se a fonte de dados estiver vazia é retornada uma exceção do tipo InvalidOperationException
+            /// </summary>
+
+            int resultadoLast = numeros.Last();
+            Console.WriteLine(resultadoLast);
+
+            resultadoLast = numeros.Last(num => num < 50);
+            Console.WriteLine(resultadoLast);
+
+            //Sintaxe de consulta
+            int lastSintaxeConsulta = (from num in numeros
+                                       select num).Last();
+
+            lastSintaxeConsulta = (from num in numeros
+                                   select num).Last(num => num > 50);
+            #endregion
+
+            #region LastOrDefault
+            ///<summary>
+            ///Faz a mesma coisa que o método Last(), porém não retorna uma exceção. É retornado um 
+            ///valor padrão com base no tipo de dados do elemento
+            /// </summary>
+
+            int resultadoLastOrDefault = numeros.LastOrDefault();
+            Console.WriteLine(resultadoLastOrDefault);
+
+            resultadoLastOrDefault = numeros.LastOrDefault(num => num < 50);
+            Console.WriteLine(resultadoLastOrDefault);
+
+            //Sintaxe de consulta
+            lastSintaxeConsulta = (from num in numeros
+                                   select num).LastOrDefault();
+
+            lastSintaxeConsulta = (from num in numeros
+                                   select num).LastOrDefault(num => num > 50);
+            #endregion
+
+            #region Single
+            ///<summary>
+            ///O método Singles() retorna um único e especifico elemento da coleção
+            /// </summary>
+
+            List<int> numerosSingle = new List<int> { 10 };
+            int resultadoSingle = numerosSingle.Single();
+            Console.WriteLine(resultadoSingle); //10
+
+            List<int> numerosSingle2 = new List<int> { 10, 20, 30 };
+            resultadoSingle = numerosSingle2.Single(n => n > 20);
+            Console.WriteLine(resultadoSingle); //30
+
+            resultadoSingle = numerosSingle2.Single(n => n > 10); //InvalidOperationException
+                                                                  //Mais de um elemento atende a condição
+
+            //Sintaxe de consulta
+            int sintaxeConsultaSingle = (from num in numerosSingle2
+                                         select num).Single();
+
+            sintaxeConsultaSingle = (from num in numerosSingle2
+                                     select num).Single(n => n > 20);
+            #endregion
+
+            #region SingleOrDefault
+            ///<summary>
+            ///Faz a mesma coisa que o método Singles(), porém não retorna uma exceção quando a coleção
+            ///estiver vazia ou quando nenhum elemento na coleção satisfazer a condição fornecida.
+            ///Porém continuará lançando uma exceção se a coleção tiver mais de um elemento ou se mais de 
+            ///um elemento atender a coleção.
+            /// </summary>
+
+            int resultadoSingleOrDefault = numerosSingle.SingleOrDefault();
+            Console.WriteLine(resultadoSingleOrDefault); //10
+
+            resultadoSingleOrDefault = numerosSingle2.SingleOrDefault(n => n > 20);
+            Console.WriteLine(resultadoSingleOrDefault); //20
+
+            resultadoSingleOrDefault = numerosSingle2.SingleOrDefault(n => n > 50); //Retorna valor padrão => 0
+                                                                                    //Nenhum elemento atende a condição
+
+            //Sintaxe de consulta
+            sintaxeConsultaSingle = (from num in numeros
+                                     select num).SingleOrDefault();
+
+            sintaxeConsultaSingle = (from num in numeros
+                                     select num).SingleOrDefault(n => n > 20);
+            #endregion
         }
     }
 }

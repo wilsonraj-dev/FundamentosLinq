@@ -176,6 +176,50 @@
             sintaxeConsultaSingle = (from num in numeros
                                      select num).SingleOrDefault(n => n > 20);
             #endregion
+
+            #region DefaultIfEmpty
+            ///<summary>
+            ///O método DefaultIfEmpty() retorna os elementos de uma coleção especificada ou o valor
+            ///padrão do parâmetro de tipo em uma coleção de singletons se a coleção estiver vazia.
+            /// </summary>
+
+            List<int> numerosDefaultIfEmpty = new List<int> { 10, 20, 30 };
+            IEnumerable<int> resultadoDefaultIfEmpty = numerosDefaultIfEmpty.DefaultIfEmpty();
+
+            foreach (var num in resultadoDefaultIfEmpty)
+            {
+                Console.WriteLine(num); //10, 20, 30
+            }
+
+            List<int> numerosDefaultIfEmptyVazia = new List<int> { };
+            resultadoDefaultIfEmpty = numerosDefaultIfEmptyVazia.DefaultIfEmpty();
+            foreach (var num in resultadoDefaultIfEmpty)
+            {
+                Console.WriteLine(num); //0
+            }
+
+            IEnumerable<int> resultadoDefaultIfEmptyValorPadrao = numerosDefaultIfEmptyVazia.DefaultIfEmpty(5);
+            foreach (var num in resultadoDefaultIfEmptyValorPadrao)
+            {
+                Console.WriteLine(num); //5
+            }
+
+            //Exemplo prático usando o método DefaultIfEmpty()
+            var filmes = new List<Filme>
+            {
+                new Filme("Titanic", 7),
+                new Filme("De volta para o futuro", 8),
+                new Filme("Mulher maravilha", 6),
+            };
+
+            var filmeFavorito = new Filme("Guardiões da galáxia", 10);
+
+            var filmeAAssistir = filmes.Where(x => x.Avaliacao >= 9)
+                                       .DefaultIfEmpty(filmeFavorito)
+                                       .First();
+
+            Console.WriteLine($"{filmeAAssistir.Titulo} - {filmeAAssistir.Avaliacao}");
+            #endregion
         }
     }
 }

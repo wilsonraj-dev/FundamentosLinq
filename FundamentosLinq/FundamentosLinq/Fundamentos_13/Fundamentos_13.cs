@@ -5,6 +5,8 @@
         static void Main(string[] args)
         {
             List<int> numeros = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            List<int> numerosNaoOrdenados = new List<int>() { 1, 3, 7, 10, 5, 8, 6, 9, 4, 2 };
+            List<string> nomes = new List<string>() { "Sara", "Raul", "José", "Ana", "Pedro" };
 
             #region Take
             ///<summary>
@@ -24,7 +26,6 @@
                 Console.Write($"{num} "); //10, 9, 8, 7, 6
             }
 
-            List<int> numerosNaoOrdenados = new List<int>() { 1, 3, 7, 10, 5, 8, 6, 9, 4, 2 };
             List<int> resultadoOrdenado = numerosNaoOrdenados.OrderBy(n => n).Where(n => n > 5).Take(4).ToList();
             foreach (var num in resultadoOrdenado)
             {
@@ -66,7 +67,6 @@
             }
 
             //Segunda sobrecarga do método - usando o índice na lógica da condição
-            List<string> nomes = new List<string>() { "Sara", "Raul", "José", "Ana", "Pedro" };
 
             List<string> resultadoNomes = nomes.TakeWhile((nome, index) => nome.Length > index).ToList();
             foreach (var nome in resultadoNomes)
@@ -74,6 +74,54 @@
                 Console.Write($"{nome} "); //Sara, Raul, José
             }
 
+            #endregion
+
+            #region Skip
+            ///<summary>
+            ///O método Skip() ignora um número 'n' especificado de elementos em uma sequência
+            ///e retorna os elementos restantes.
+            /// </summary>
+
+            List<int> resultadoSkip = numeros.Skip(4).ToList();
+            foreach (var num in resultadoSkip)
+            {
+                Console.Write($"{num} "); //5, 6, 7, 8, 9, 10
+            }
+
+            var resultadoSkip2 = numeros.Where(n => n > 3).Skip(4);
+            foreach (var num in resultadoSkip2)
+            {
+                Console.Write($"{num} "); //8, 9, 10
+            }
+
+            //Sintaxe de consulta
+            resultadoSkip = (from num in numeros
+                             select num).Skip(4).Where(n => n < 7).ToList();
+            #endregion
+
+            #region SkipWhile
+            ///<summary>
+            ///Ignora os elementos em uma fonte de dados desde que uma condição especificada
+            ///seja verdadeira e, em seguida, retorna os elementos restantes
+            /// </summary>
+
+            List<int> skipWhile = numeros.SkipWhile(n => n < 5).ToList();
+            foreach (var num in skipWhile)
+            {
+                Console.Write($"{num} "); //5, 6, 7, 8, 9, 10
+            }
+
+            skipWhile = numerosNaoOrdenados.SkipWhile(n => n < 5).ToList();
+            foreach (var num in skipWhile)
+            {
+                Console.Write($"{num} "); //7, 10, 5, 8, 6, 9, 4, 2
+            }
+
+            resultadoNomes = nomes.SkipWhile((nome, index) => nome.Length > index).ToList();
+            foreach (var nome in resultadoNomes)
+            {
+                Console.Write($"{nome} "); //Ana, Pedro
+            }
             #endregion
         }
     }

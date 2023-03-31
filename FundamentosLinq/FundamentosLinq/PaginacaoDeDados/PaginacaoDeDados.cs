@@ -1,6 +1,6 @@
 ﻿namespace FundamentosLinq.Fundamentos_14
 {
-    internal class Fundamentos_14
+    internal class PaginacaoDeDados
     {
         //Implementando a paginação
         int RegistrosPorPagina = 4;

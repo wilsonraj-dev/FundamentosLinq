@@ -1,6 +1,6 @@
 ﻿namespace FundamentosLinq.Fundamentos_5
 {
-    class Fundamentos_5
+    class OperadoresDeConjunto2
     {
         static void Main(string[] args)
         {

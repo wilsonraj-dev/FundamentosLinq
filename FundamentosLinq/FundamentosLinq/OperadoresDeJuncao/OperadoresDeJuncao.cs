@@ -1,6 +1,6 @@
 ﻿namespace FundamentosLinq.Fundamentos_11
 {
-    internal class Fundamentos_11
+    internal class OperadoresDeJuncao
     {
         static void Main(string[] args)
         {

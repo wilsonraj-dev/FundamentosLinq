@@ -1,6 +1,6 @@
 ﻿namespace FundamentosLinq.Fundamentos_3
 {
-    class Fundamentos_3
+    class OperadoresDeProjecao
     {
         static void Main(string[] args)
         {

@@ -1,6 +1,6 @@
 ﻿namespace FundamentosLinq.Fundamentos_8
 {
-    internal class Fundamentos_8
+    internal class OperadoresDeAgregacao2
     {
         static void Main(string[] args)
         {

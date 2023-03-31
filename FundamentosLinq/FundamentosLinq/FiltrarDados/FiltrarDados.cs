@@ -1,6 +1,6 @@
 ﻿namespace FundamentosLinq.Fundamentos_2
 {
-    class Fundamentos_2
+    class FiltrarDados
     {
         static void Main(string[] args)
         {

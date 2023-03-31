@@ -1,6 +1,6 @@
 ﻿namespace FundamentosLinq
 {
-    class Fundamentos_1
+    class Apresentacao
     {
         static void Main(string[] args)
         {

@@ -1,8 +1,4 @@
-﻿using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FundamentosLinq.Fundamentos_5
+﻿namespace FundamentosLinq.Fundamentos_5
 {
     internal class FonteDados
     {

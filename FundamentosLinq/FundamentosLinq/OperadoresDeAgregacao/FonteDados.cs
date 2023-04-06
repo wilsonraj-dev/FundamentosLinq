@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace FundamentosLinq.Fundamentos_7
+﻿namespace FundamentosLinq.Fundamentos_7
 {
     internal class FonteDados
     {
